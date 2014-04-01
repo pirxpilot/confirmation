@@ -1,4 +1,10 @@
 
+0.1.0 / 2014-04-01
+==================
+
+ * remove jquery dependency
+ * Change from __proto__ to inherit for IE
+
 0.0.4 / 2012-11-06 
 ==================
 
