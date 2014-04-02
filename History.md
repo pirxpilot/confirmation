@@ -1,4 +1,9 @@
 
+0.1.1 / 2014-04-01
+==================
+
+ * use code42day/dialog instead of component/dialog
+
 0.1.0 / 2014-04-01
 ==================
 
