@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "component/event": "*",
-    "component/dialog": "*",
+    "code42day/dialog": "0.0.8",
     "component/inherit": "*",
     "component/query": "*"
   },
