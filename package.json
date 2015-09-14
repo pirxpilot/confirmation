@@ -7,7 +7,21 @@
     "component"
   ],
   "dependencies": {
+    "component-event": "~0",
+    "component-inherit": "0.0.3",
+    "component-query": "~0",
     "dialog-component": "*"
+  },
+  "browser": {
+    "event": "component-event",
+    "dialog": "dialog-component",
+    "inherit": "component-inherit",
+    "query": "component-query"
+  },
+  "browserify": {
+    "transform": [
+      "stringify"
+    ]
   },
   "component": {
     "styles": [
@@ -23,5 +37,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/component/confirmation.git"
+  },
+  "devDependencies": {
+    "stringify": "^3.1.0"
   }
 }
