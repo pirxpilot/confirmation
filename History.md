@@ -1,16 +1,23 @@
 
-0.0.5 / 2014-04-02 
+1.0.0 / 2015-09-18
+==================
+
+ * switch build to browserify only
+ * fork as code42day-confirmation
+ * add support for browserify
+
+0.0.5 / 2014-04-02
 ==================
 
  * remove jquery dependency
  * Change from __proto__ to inherit for IE
 
-0.0.4 / 2012-11-06 
+0.0.4 / 2012-11-06
 ==================
 
   * fix missing jquery dep [MatthewMueller]
 
-0.0.3 / 2012-11-01 
+0.0.3 / 2012-11-01
 ==================
 
   * fix setup for recent component
@@ -22,7 +29,7 @@
   * change focus to .cancel by default
   * Initial commit
 
-0.0.2 / 2012-07-05 
+0.0.2 / 2012-07-05
 ==================
 
   * fix dialog.effect support
