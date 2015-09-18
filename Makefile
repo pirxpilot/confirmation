@@ -1,19 +1,36 @@
+PROJECT=confirmation
+CSS=\
+	node_modules/code42day-dialog/node_modules/overlay-component/overlay.css \
+	node_modules/code42day-dialog/dialog.css \
+	confirmation.css
 
-build: confirmation.css index.js confirmation.html components
-	@component build --dev
+all: check compile
 
-components:
-	@component install --dev
+check: lint
 
-build-browserify: index.js confirmation.html node_modules
-	@mkdir -p build
-	@browserify \
+lint:
+	jshint index.js
+
+compile: build/build.js build/build.css
+
+build:
+	mkdir -p $@
+
+build/build.js: node_modules index.js | build
+	browserify \
 		--require dialog \
-		--require ./index.js:confirmation \
-		--outfile build/build.js
+		--require ./index.js:$(PROJECT) \
+		--outfile $@
+
+.DELETE_ON_ERROR: build/build.js
+
+build/build.css: $(CSS) | build
+	cat $^ > $@
+
+node_modules: package.json
+	npm install
 
 clean:
-	rm -fr build components
+	rm -fr build node_modules
 
-.PHONY: clean build
-
+.PHONY: clean lint check all build
