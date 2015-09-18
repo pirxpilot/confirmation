@@ -1,5 +1,5 @@
 {
-  "name": "confirmation-component",
+  "name": "code42day-confirmation",
   "description": "Confirmation component",
   "version": "0.0.5",
   "keywords": [
@@ -7,14 +7,14 @@
     "component"
   ],
   "dependencies": {
+    "code42day-dialog": "^1.0.1",
     "component-event": "~0",
     "component-inherit": "0.0.3",
-    "component-query": "~0",
-    "dialog-component": "*"
+    "component-query": "~0"
   },
   "browser": {
     "event": "component-event",
-    "dialog": "dialog-component",
+    "dialog": "code42day-dialog",
     "inherit": "component-inherit",
     "query": "component-query"
   },
@@ -23,22 +23,12 @@
       "stringify"
     ]
   },
-  "component": {
-    "styles": [
-      "confirmation.css"
-    ],
-    "scripts": {
-      "confirmation": "index.js"
-    },
-    "templates": {
-      "confirmation": "confirmation.html"
-    }
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/component/confirmation.git"
+    "url": "https://github.com/code42day/confirmation.git"
   },
   "devDependencies": {
     "stringify": "^3.1.0"
-  }
+  },
+  "license": "MIT"
 }

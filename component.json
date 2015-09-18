@@ -7,8 +7,8 @@
     "ui"
   ],
   "dependencies": {
+    "code42day/dialog": "*",
     "component/event": "*",
-    "component/dialog": "*",
     "component/inherit": "*",
     "component/query": "*"
   },
@@ -21,6 +21,5 @@
   "templates": [
     "confirmation.html"
   ],
-  "demo": "http://component.github.io/confirmation/",
   "license": "MIT"
 }
