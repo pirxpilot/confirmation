@@ -1,6 +1,6 @@
 PROJECT=confirmation
 CSS=\
-	node_modules/code42day-dialog/node_modules/overlay-component/overlay.css \
+	node_modules/overlay-component/overlay.css \
 	node_modules/code42day-dialog/dialog.css \
 	confirmation.css
 

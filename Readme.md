@@ -12,7 +12,7 @@
 ## Installation
 
 ```
-$ npm install confirmation-component
+$ npm install @pirxpilot/confirmation
 ```
 
 ## Features

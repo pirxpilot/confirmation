@@ -1,5 +1,5 @@
 {
-  "name": "code42day-confirmation",
+  "name": "@pirxpilot/confirmation",
   "description": "Confirmation component",
   "version": "1.0.0",
   "keywords": [
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/code42day/confirmation.git"
+    "url": "https://github.com/pirxpilot/confirmation.git"
   },
   "devDependencies": {
     "stringify": "^3.1.0"
