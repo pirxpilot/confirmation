@@ -1,4 +1,13 @@
 
+1.0.3 / 2017-12-12
+==================
+
+ * fix using undocumented `_classes` property
+ * fix building CSS
+ * minify html template
+ * replace .npmignore with package.files
+ * remove component-event
+
 1.0.2 / 2017-03-18
 ==================
 
