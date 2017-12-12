@@ -28,5 +28,10 @@
   "devDependencies": {
     "stringify": "^3.1.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "confirmation.css",
+    "confirmation.html"
+  ]
 }
