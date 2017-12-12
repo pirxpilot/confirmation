@@ -3,7 +3,6 @@
  */
 
 var Dialog = require('dialog').Dialog
-  , events = require('event')
   , q = require('query')
   , html = require('./confirmation.html')
   , inherit = require('inherit');
@@ -138,14 +137,14 @@ Confirmation.prototype.render = function(options){
     self.callback(false);
   });
 
-  events.bind(q('.cancel', this.el), 'click', function(e){
+  q('.cancel', this.el).addEventListener('click', function(e){
     e.preventDefault();
     self.emit('cancel');
     self.callback(false);
     self.hide();
   });
 
-  events.bind(q('.ok', this.el), 'click', function(e){
+  q('.ok', this.el).addEventListener('click', function(e){
     e.preventDefault();
     self.emit('ok');
     self.callback(true);
