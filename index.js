@@ -124,7 +124,7 @@ Confirmation.prototype.render = function(options){
   var self = this;
   Dialog.prototype.render.call(this, options);
 
-  this._classes.add('confirmation');
+  this.el.classList.add('confirmation');
   this.el.insertAdjacentHTML('beforeend', html);
 
   this.on('close', function(){
