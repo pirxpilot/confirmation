@@ -1,7 +1,7 @@
 PROJECT=confirmation
 CSS=\
-	node_modules/overlay-component/overlay.css \
-	node_modules/code42day-dialog/dialog.css \
+	node_modules/@pirxpilot/overlay/overlay.css \
+	node_modules/@pirxpilot/dialog/dialog.css \
 	confirmation.css
 
 all: check compile
