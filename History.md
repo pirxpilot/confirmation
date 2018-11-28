@@ -1,4 +1,11 @@
 
+2.0.0 / 2018-11-28
+==================
+
+ * remove package.browser clause
+ * remove component-query
+ * rewrite in ES6
+
 1.0.3 / 2017-12-12
 ==================
 
