@@ -18,7 +18,7 @@ build:
 
 build/build.js: node_modules index.js | build
 	browserify \
-		--require dialog \
+		--require @pirxpilot/dialog \
 		--require ./index.js:$(PROJECT) \
 		--outfile $@
 

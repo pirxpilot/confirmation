@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-const { Dialog } = require('dialog');
+const { Dialog } = require('@pirxpilot/dialog');
 
 const html = require('./confirmation.html');
 
