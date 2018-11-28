@@ -4,7 +4,6 @@
 
 const { Dialog } = require('dialog');
 
-const q = require('query');
 const html = require('./confirmation.html');
 
 /**
@@ -52,7 +51,7 @@ class Confirmation extends Dialog {
    */
 
   cancel(text) {
-    q('.cancel', this.el).innerHTML = text;
+    this.el.querySelector('.cancel').innerHTML = text;
     return this;
   }
 
@@ -65,7 +64,7 @@ class Confirmation extends Dialog {
    */
 
   ok(text) {
-    q('.ok', this.el).innerHTML = text;
+    this.el.querySelector('.ok').innerHTML = text;
     return this;
   }
 
@@ -79,7 +78,7 @@ class Confirmation extends Dialog {
 
   show(fn = () => {}) {
     super.show();
-    q(`.${this._focus}`, this.el).focus();
+    this.el.querySelector(`.${this._focus}`).focus();
     this.callback = fn;
     return this;
   }
@@ -110,14 +109,14 @@ class Confirmation extends Dialog {
       this.callback(false);
     });
 
-    q('.cancel', this.el).addEventListener('click', (e) => {
+    this.el.querySelector('.cancel').addEventListener('click', (e) => {
       e.preventDefault();
       this.emit('cancel');
       this.callback(false);
       this.hide();
     });
 
-    q('.ok', this.el).addEventListener('click', (e) => {
+    this.el.querySelector('.ok').addEventListener('click', (e) => {
       e.preventDefault();
       this.emit('ok');
       this.callback(true);

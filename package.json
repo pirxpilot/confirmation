@@ -7,12 +7,10 @@
     "component"
   ],
   "dependencies": {
-    "@pirxpilot/dialog": "^1.1.1",
-    "component-query": "~0"
+    "@pirxpilot/dialog": "^1.1.1"
   },
   "browser": {
-    "dialog": "@pirxpilot/dialog",
-    "query": "component-query"
+    "dialog": "@pirxpilot/dialog"
   },
   "browserify": {
     "transform": [
