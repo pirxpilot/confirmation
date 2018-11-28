@@ -2,10 +2,9 @@
  * Module dependencies.
  */
 
-var Dialog = require('dialog').Dialog
-  , q = require('query')
-  , html = require('./confirmation.html')
-  , inherit = require('inherit');
+const { Dialog } = require('@pirxpilot/dialog');
+
+const html = require('./confirmation.html');
 
 /**
  * Expose `confirm()`.
@@ -16,6 +15,115 @@ exports = module.exports = confirm;
 /**
  * Expose `Confirmation`.
  */
+
+/**
+ * Initialize a new `Confirmation` dialog.
+ *
+ * @param {Object} options
+ * @api public
+ */
+
+class Confirmation extends Dialog {
+  constructor(options) {
+    super(options);
+    this.focus('cancel');
+  }
+
+  /**
+   * Focus `type`, either "ok" or "cancel".
+   *
+   * @param {String} type
+   * @return {Confirmation}
+   * @api public
+   */
+
+  focus(type) {
+    this._focus = type;
+    return this;
+  }
+
+  /**
+   * Change "cancel" button `text`.
+   *
+   * @param {String} text
+   * @return {Confirmation}
+   * @api public
+   */
+
+  cancel(text) {
+    this.el.querySelector('.cancel').innerHTML = text;
+    return this;
+  }
+
+  /**
+   * Change "ok" button `text`.
+   *
+   * @param {String} text
+   * @return {Confirmation}
+   * @api public
+   */
+
+  ok(text) {
+    this.el.querySelector('.ok').innerHTML = text;
+    return this;
+  }
+
+  /**
+   * Show the confirmation dialog and invoke `fn(ok)`.
+   *
+   * @param {Function} fn
+   * @return {Confirmation} for chaining
+   * @api public
+   */
+
+  show(fn = () => {}) {
+    super.show();
+    this.el.querySelector(`.${this._focus}`).focus();
+    this.callback = fn;
+    return this;
+  }
+
+  /**
+   * Render with the given `options`.
+   *
+   * Emits "cancel" event.
+   * Emits "ok" event.
+   *
+   * @param {Object} options
+   * @api public
+   */
+
+  render(options) {
+    super.render(options);
+
+    this.el.classList.add('confirmation');
+    this.el.insertAdjacentHTML('beforeend', html);
+
+    this.on('close', () => {
+      this.emit('cancel');
+      this.callback(false);
+    });
+
+    this.on('escape', () => {
+      this.emit('cancel');
+      this.callback(false);
+    });
+
+    this.el.querySelector('.cancel').addEventListener('click', (e) => {
+      e.preventDefault();
+      this.emit('cancel');
+      this.callback(false);
+      this.hide();
+    });
+
+    this.el.querySelector('.ok').addEventListener('click', (e) => {
+      e.preventDefault();
+      this.emit('ok');
+      this.callback(true);
+      this.hide();
+    });
+  }
+}
 
 exports.Confirmation = Confirmation;
 
@@ -32,122 +140,10 @@ exports.Confirmation = Confirmation;
 function confirm(title, msg) {
   switch (arguments.length) {
     case 2:
-      return new Confirmation({ title: title, message: msg });
+      return new Confirmation({ title, message: msg });
     case 1:
       return new Confirmation({ message: title });
   }
 }
 
-/**
- * Initialize a new `Confirmation` dialog.
- *
- * @param {Object} options
- * @api public
- */
 
-function Confirmation(options) {
-  Dialog.call(this, options);
-  this.focus('cancel');
-}
-
-/**
- * Inherits from `Dialog.prototype`.
- */
-
-inherit(Confirmation, Dialog);
-
-/**
- * Focus `type`, either "ok" or "cancel".
- *
- * @param {String} type
- * @return {Confirmation}
- * @api public
- */
-
-Confirmation.prototype.focus = function(type){
-  this._focus = type;
-  return this;
-};
-
-/**
- * Change "cancel" button `text`.
- *
- * @param {String} text
- * @return {Confirmation}
- * @api public
- */
-
-Confirmation.prototype.cancel = function(text){
-  q('.cancel', this.el).innerHTML = text;
-  return this;
-};
-
-/**
- * Change "ok" button `text`.
- *
- * @param {String} text
- * @return {Confirmation}
- * @api public
- */
-
-Confirmation.prototype.ok = function(text){
-  q('.ok', this.el).innerHTML = text;
-  return this;
-};
-
-/**
- * Show the confirmation dialog and invoke `fn(ok)`.
- *
- * @param {Function} fn
- * @return {Confirmation} for chaining
- * @api public
- */
-
-Confirmation.prototype.show = function(fn){
-  Dialog.prototype.show.call(this);
-  q('.' + this._focus, this.el).focus();
-  this.callback = fn || function(){};
-  return this;
-};
-
-/**
- * Render with the given `options`.
- *
- * Emits "cancel" event.
- * Emits "ok" event.
- *
- * @param {Object} options
- * @api public
- */
-
-Confirmation.prototype.render = function(options){
-  var self = this;
-  Dialog.prototype.render.call(this, options);
-
-  this.el.classList.add('confirmation');
-  this.el.insertAdjacentHTML('beforeend', html);
-
-  this.on('close', function(){
-    self.emit('cancel');
-    self.callback(false);
-  });
-
-  this.on('escape', function(){
-    self.emit('cancel');
-    self.callback(false);
-  });
-
-  q('.cancel', this.el).addEventListener('click', function(e){
-    e.preventDefault();
-    self.emit('cancel');
-    self.callback(false);
-    self.hide();
-  });
-
-  q('.ok', this.el).addEventListener('click', function(e){
-    e.preventDefault();
-    self.emit('ok');
-    self.callback(true);
-    self.hide();
-  });
-};
