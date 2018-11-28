@@ -7,13 +7,11 @@
     "component"
   ],
   "dependencies": {
-    "component-inherit": "0.0.3",
-    "component-query": "~0",
-    "@pirxpilot/dialog": "^1.1.1"
+    "@pirxpilot/dialog": "^1.1.1",
+    "component-query": "~0"
   },
   "browser": {
     "dialog": "@pirxpilot/dialog",
-    "inherit": "component-inherit",
     "query": "component-query"
   },
   "browserify": {
