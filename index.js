@@ -4,7 +4,12 @@
 
 const { Dialog } = require('@pirxpilot/dialog');
 
-const html = require('./confirmation.html');
+const html = `
+<div class="confirmation-actions">
+  <button class="cancel">Cancel</button>
+  <button class="ok main">Ok</button>
+</div>
+`;
 
 /**
  * Expose `confirm()`.

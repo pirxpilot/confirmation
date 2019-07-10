@@ -9,25 +9,10 @@
   "dependencies": {
     "@pirxpilot/dialog": "~2"
   },
-  "browserify": {
-    "transform": [
-      "stringify"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pirxpilot/confirmation.git"
-  },
-  "devDependencies": {
-    "stringify": "~5"
-  },
-  "stringify": {
-    "minify": true
-  },
+  "repository": "pirxpilot/confirmation",
   "license": "MIT",
   "files": [
     "index.js",
-    "confirmation.css",
-    "confirmation.html"
+    "confirmation.css"
   ]
 }
