@@ -27,7 +27,6 @@
   "license": "MIT",
   "files": [
     "index.js",
-    "confirmation.css",
-    "confirmation.html"
+    "confirmation.css"
   ]
 }
