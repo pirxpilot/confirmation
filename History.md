@@ -1,4 +1,10 @@
 
+2.0.2 / 2019-07-09
+==================
+
+ * remove stringify transformation
+ * replace confirmation.html with template string
+
 2.0.1 / 2018-11-30
 ==================
 
