@@ -9,12 +9,7 @@
     <title>Confirmation</title>
     <script src="../build/build.js"></script>
     <script>
-      var confirm = require('confirmation');
-      var Dialog = require('@pirxpilot/dialog');
-
-      Dialog.effect = 'slide';
-
-      confirm('Are you sure?')
+      confirmation('Are you sure?')
         .focus('ok')
         .show(function(yes){
           if (yes) {
@@ -26,7 +21,7 @@
         });
 
       function title() {
-        confirm('Delete user', 'Are you sure?')
+        confirmation('Delete user', 'Are you sure?')
           .show(function(yes){
             if (yes) {
               console.log('removed');
@@ -38,7 +33,7 @@
       }
 
       function modal() {
-        confirm('Delete user', 'Are you sure?')
+        confirmation('Delete user', 'Are you sure?')
           .modal()
           .show(function(yes){
             if (yes) {
@@ -51,7 +46,7 @@
       }
 
       function closable() {
-        confirm('Closable')
+        confirmation('Closable')
           .modal()
           .closable()
           .cancel('Dont do it!')
