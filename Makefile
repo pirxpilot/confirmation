@@ -17,12 +17,13 @@ build:
 	mkdir -p $@
 
 build/build.js: node_modules index.js | build
-	browserify \
-		--require @pirxpilot/dialog \
-		--require ./index.js:$(PROJECT) \
-		--outfile $@
-
-.DELETE_ON_ERROR: build/build.js
+	esbuild \
+					--bundle \
+					--sourcemap \
+					--define:DEBUG="true" \
+					--global-name=$(PROJECT) \
+					--outfile=$@ \
+					index.js
 
 build/build.css: $(CSS) | build
 	cat $^ > $@
