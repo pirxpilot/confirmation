@@ -7,7 +7,7 @@
     "component"
   ],
   "dependencies": {
-    "@pirxpilot/dialog": "~2"
+    "@pirxpilot/dialog": "~3"
   },
   "repository": "pirxpilot/confirmation",
   "license": "MIT",

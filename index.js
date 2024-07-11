@@ -5,10 +5,10 @@
 const { Dialog } = require('@pirxpilot/dialog');
 
 const html = `
-<div class="confirmation-actions">
-  <button class="cancel">Cancel</button>
-  <button class="ok main">Ok</button>
-</div>
+<form method="dialog" class="confirmation-actions">
+  <button class="cancel" value="cancel">Cancel</button>
+  <button class="ok main" value="ok">Ok</button>
+</form>
 `;
 
 /**
@@ -56,7 +56,7 @@ class Confirmation extends Dialog {
    */
 
   cancel(text) {
-    this.el.querySelector('.cancel').innerHTML = text;
+    this.el.querySelector('.confirmation-actions .cancel').innerHTML = text;
     return this;
   }
 
@@ -69,7 +69,7 @@ class Confirmation extends Dialog {
    */
 
   ok(text) {
-    this.el.querySelector('.ok').innerHTML = text;
+    this.el.querySelector('.confirmation-actions .ok').innerHTML = text;
     return this;
   }
 
@@ -104,28 +104,9 @@ class Confirmation extends Dialog {
     this.el.classList.add('confirmation');
     this.el.insertAdjacentHTML('beforeend', html);
 
-    this.on('close', () => {
-      this.emit('cancel');
-      this.callback(false);
-    });
-
-    this.on('escape', () => {
-      this.emit('cancel');
-      this.callback(false);
-    });
-
-    this.el.querySelector('.cancel').addEventListener('click', (e) => {
-      e.preventDefault();
-      this.emit('cancel');
-      this.callback(false);
-      this.hide();
-    });
-
-    this.el.querySelector('.ok').addEventListener('click', (e) => {
-      e.preventDefault();
-      this.emit('ok');
-      this.callback(true);
-      this.hide();
+    this.on('hide', ev => {
+      this.emit(ev);
+      this.callback(ev === "ok");
     });
   }
 }
@@ -150,5 +131,3 @@ function confirm(title, msg) {
       return new Confirmation({ message: title });
   }
 }
-
-
