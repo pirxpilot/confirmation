@@ -1,6 +1,5 @@
 PROJECT=confirmation
 CSS=\
-	node_modules/@pirxpilot/overlay/overlay.css \
 	node_modules/@pirxpilot/dialog/dialog.css \
 	confirmation.css
 
