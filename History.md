@@ -1,4 +1,10 @@
 
+3.0.0 / 2024-07-11
+==================
+
+ * reimplement using native dialog API
+ * switch to esbuild
+
 2.0.2 / 2019-07-09
 ==================
 
