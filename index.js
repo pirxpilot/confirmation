@@ -1,8 +1,4 @@
-/**
- * Module dependencies.
- */
-
-const { Dialog } = require('@pirxpilot/dialog');
+import { Dialog } from '@pirxpilot/dialog';
 
 const html = `
 <form method="dialog" class="confirmation-actions">
@@ -12,23 +8,12 @@ const html = `
 `;
 
 /**
- * Expose `confirm()`.
- */
-
-module.exports = confirm;
-
-/**
- * Expose `Confirmation`.
- */
-
-/**
  * Initialize a new `Confirmation` dialog.
  *
  * @param {Object} options
- * @api public
  */
 
-class Confirmation extends Dialog {
+export class Confirmation extends Dialog {
   constructor(options) {
     super(options);
     this.focus('cancel');
@@ -39,7 +24,6 @@ class Confirmation extends Dialog {
    *
    * @param {String} type
    * @return {Confirmation}
-   * @api public
    */
 
   focus(type) {
@@ -52,7 +36,6 @@ class Confirmation extends Dialog {
    *
    * @param {String} text
    * @return {Confirmation}
-   * @api public
    */
 
   cancel(text) {
@@ -65,7 +48,6 @@ class Confirmation extends Dialog {
    *
    * @param {String} text
    * @return {Confirmation}
-   * @api public
    */
 
   ok(text) {
@@ -78,7 +60,6 @@ class Confirmation extends Dialog {
    *
    * @param {Function} fn
    * @return {Confirmation} for chaining
-   * @api public
    */
 
   show(fn = () => {}) {
@@ -95,7 +76,6 @@ class Confirmation extends Dialog {
    * Emits "ok" event.
    *
    * @param {Object} options
-   * @api public
    */
 
   render(options) {
@@ -120,10 +100,9 @@ confirm.Confirmation = Confirmation;
  * @param {String} title or msg
  * @param {String} msg
  * @return {Confirmation}
- * @api public
  */
 
-function confirm(title, msg) {
+export default function confirm(title, msg) {
   // biome-ignore lint/style/noArguments: <explanation>
   switch (arguments.length) {
     case 2:
