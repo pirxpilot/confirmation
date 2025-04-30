@@ -15,7 +15,7 @@ const html = `
  * Expose `confirm()`.
  */
 
-exports = module.exports = confirm;
+module.exports = confirm;
 
 /**
  * Expose `Confirmation`.
@@ -106,12 +106,12 @@ class Confirmation extends Dialog {
 
     this.on('hide', ev => {
       this.emit(ev);
-      this.callback(ev === "ok");
+      this.callback(ev === 'ok');
     });
   }
 }
 
-exports.Confirmation = Confirmation;
+confirm.Confirmation = Confirmation;
 
 /**
  * Return a new `Confirmation` with the given
@@ -124,6 +124,7 @@ exports.Confirmation = Confirmation;
  */
 
 function confirm(title, msg) {
+  // biome-ignore lint/style/noArguments: <explanation>
   switch (arguments.length) {
     case 2:
       return new Confirmation({ title, message: msg });
