@@ -9,7 +9,7 @@
     "component"
   ],
   "dependencies": {
-    "@pirxpilot/dialog": "~3"
+    "@pirxpilot/dialog": "~4"
   },
   "repository": {
     "type": "git",
