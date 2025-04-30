@@ -2,14 +2,19 @@
   "name": "@pirxpilot/confirmation",
   "description": "Confirmation component",
   "version": "3.0.0",
+  "type": "module",
+  "exports": "./index.js",
   "keywords": [
     "confirmation",
     "component"
   ],
   "dependencies": {
-    "@pirxpilot/dialog": "~3"
+    "@pirxpilot/dialog": "~4"
   },
-  "repository": "pirxpilot/confirmation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pirxpilot/confirmation.git"
+  },
   "license": "MIT",
   "files": [
     "index.js",
