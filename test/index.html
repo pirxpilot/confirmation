@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <title>Confirmation</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../build/build.css" />
   </head>
   <body>
@@ -12,7 +12,7 @@
       confirmation = confirmation.default;
       confirmation('Are you sure?')
         .focus('ok')
-        .show(function(yes){
+        .show(yes => {
           if (yes) {
             console.log('removed');
           } else {
@@ -22,21 +22,20 @@
         });
 
       function title() {
-        confirmation('Delete user', 'Are you sure?')
-          .show(function(yes){
-            if (yes) {
-              console.log('removed');
-            } else {
-              console.log('not removed');
-            }
-            modal();
-          });
+        confirmation('Delete user', 'Are you sure?').show(yes => {
+          if (yes) {
+            console.log('removed');
+          } else {
+            console.log('not removed');
+          }
+          modal();
+        });
       }
 
       function modal() {
         confirmation('Delete user', 'Are you sure?')
           .modal()
-          .show(function(yes){
+          .show(yes => {
             if (yes) {
               console.log('removed');
             } else {
@@ -52,7 +51,7 @@
           .closable()
           .cancel('Dont do it!')
           .ok('Do it!')
-          .show(function(yes){
+          .show(yes => {
             if (yes) {
               console.log('removed');
             } else {
@@ -60,7 +59,6 @@
             }
           });
       }
-
     </script>
   </body>
 </html>

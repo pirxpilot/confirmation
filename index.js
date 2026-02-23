@@ -102,12 +102,11 @@ confirm.Confirmation = Confirmation;
  * @return {Confirmation}
  */
 
-export default function confirm(title, msg) {
-  // biome-ignore lint/style/noArguments: <explanation>
-  switch (arguments.length) {
+export default function confirm(...args) {
+  switch (args.length) {
     case 2:
-      return new Confirmation({ title, message: msg });
+      return new Confirmation({ title: args[0], message: args[1] });
     case 1:
-      return new Confirmation({ message: title });
+      return new Confirmation({ message: args[0] });
   }
 }
